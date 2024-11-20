@@ -170,3 +170,35 @@ public class ConnectionClass {
             System.out.println(e);
         }
 ```
+
+
+### Thread 
+```
+    Runnable task1 = () -> {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Thread-1 - Number: " + i);
+            try {
+                Thread.sleep(100); 
+            } catch (InterruptedException e) {
+                System.out.println("Thread-1 interrupted.");
+            }
+        }
+    };
+
+    Runnable task2 = () -> {
+        for (int i = 11; i <= 20; i++) {
+            System.out.println("Thread-2 - Number: " + i);
+            try {
+                Thread.sleep(100); 
+            } catch (InterruptedException e) {
+                System.out.println("Thread-2 interrupted.");
+            }
+        }
+    };
+
+    Thread thread1 = new Thread(task1);
+    Thread thread2 = new Thread(task2);
+
+    thread1.start();
+    thread2.start();
+```
